@@ -1,0 +1,340 @@
+/* frontend/src/components/TestSystem.css */
+.test-instructions {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.instructions-container {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.instructions-container h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.test-description {
+    margin-bottom: 30px;
+}
+
+.test-description h2 {
+    color: #3498db;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.description-image {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.description-image img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.instruction-text {
+    background: #e8f4fc;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 4px solid #3498db;
+}
+
+.instruction-text h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.instruction-text p {
+    color: #34495e;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.test-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.test-stats p {
+    margin: 8px 0;
+    color: #2c3e50;
+    font-size: 15px;
+}
+
+.test-stats strong {
+    color: #3498db;
+}
+
+.important-notes {
+    background: #fff3cd;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
+    border-left: 4px solid #ffc107;
+}
+
+.important-notes h4 {
+    color: #856404;
+    margin-bottom: 15px;
+}
+
+.important-notes ul {
+    padding-left: 20px;
+    color: #856404;
+}
+
+.important-notes li {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.btn-start-test {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+}
+
+.btn-start-test:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+}
+
+/* Test System Styles */
+.test-system {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    min-height: 100vh;
+}
+
+.test-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px;
+}
+
+.test-info h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+}
+
+.test-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.timer {
+    font-weight: 600;
+    color: #ffdd59;
+}
+
+.progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ffdd59, #ff9f1a);
+    transition: width 0.3s ease;
+}
+
+.question-area {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 0 0 10px 10px;
+}
+
+.question-header {
+    margin-bottom: 25px;
+}
+
+.question-header h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin: 0;
+}
+
+.question-image-container {
+    text-align: center;
+    margin: 25px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.question-image {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 8px;
+}
+
+.answer-options {
+    margin: 30px 0;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.option-btn {
+    padding: 20px;
+    background: white;
+    border: 3px solid #e9ecef;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.option-btn:hover {
+    border-color: #3498db;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+}
+
+.option-btn.selected {
+    border-color: #2ecc71;
+    background: #e8f6f3;
+}
+
+.option-letter {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.option-btn.selected .option-letter {
+    color: #27ae60;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #e9ecef;
+}
+
+.btn-skip, .btn-finish {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-skip {
+    background: #fdcb6e;
+    color: #2c3e50;
+}
+
+.btn-skip:hover {
+    background: #f9c855;
+    transform: translateY(-2px);
+}
+
+.btn-finish {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    color: white;
+}
+
+.btn-finish:hover {
+    background: linear-gradient(135deg, #27ae60 0%, #219653 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 20px;
+    color: #3498db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .instructions-container {
+        padding: 20px;
+    }
+    
+    .options-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .test-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .navigation-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn-skip, .btn-finish {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .options-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .test-header {
+        padding: 15px;
+    }
+    
+    .test-info h2 {
+        font-size: 20px;
+    }
+}

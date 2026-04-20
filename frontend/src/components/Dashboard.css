@@ -1,0 +1,574 @@
+/* Dashboard.css */
+.dashboard {
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+.dashboard-header {
+    background: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+.user-role {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin: 5px 0 0;
+}
+
+.psychologist-code {
+    background: #e8f4fc;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #3498db;
+    margin-top: 5px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.psychologist-linked {
+    color: #27ae60;
+    font-size: 14px;
+}
+
+.btn-link {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-logout {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dashboard-main {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Test Section */
+.test-section {
+    margin-bottom: 40px;
+}
+
+.test-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.test-card h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.test-info {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+/* Results Table */
+.results-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.results-table-container {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.results-table th {
+    background: #f8f9fa;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.results-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.iq-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.iq-low { background: #ffeaa7; color: #d35400; }
+.iq-average { background: #a29bfe; color: #6c5ce7; }
+.iq-high { background: #81ecec; color: #00b894; }
+.iq-very-high { background: #fd79a8; color: #e84393; }
+
+.percentile-bar {
+    width: 100%;
+    height: 20px;
+    background: #f1f2f6;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.percentile-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #74b9ff, #0984e3);
+    transition: width 0.3s ease;
+}
+
+.percentile-bar span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.interpretation {
+    max-width: 300px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Psychologist Layout */
+.psychologist-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+}
+
+.patients-list {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.patient-card {
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.patient-card:hover {
+    background: #f8f9fa;
+}
+
+.patient-card.selected {
+    background: #e8f4fc;
+    border-left: 4px solid #3498db;
+}
+
+.patient-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-top: 8px;
+}
+
+/* Detailed Results */
+.detailed-results {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-card {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.result-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.metric {
+    text-align: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.metric label {
+    display: block;
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.metric .value {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.answers-json {
+    background: #2c3e50;
+    color: #f5f7fa;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 12px;
+    max-height: 200px;
+    overflow: auto;
+    font-family: 'Courier New', monospace;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-secondary {
+    background: #95a5a6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Test Component Styles */
+.test-start {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.instructions {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 30px 0;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.age-input {
+    margin: 30px 0;
+}
+
+.age-input input {
+    padding: 12px;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.btn-start {
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.test-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    height: 6px;
+    background: #f1f2f6;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #74b9ff, #0984e3);
+    transition: width 0.3s ease;
+}
+
+.test-info {
+    display: flex;
+    justify-content: space-between;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.timer {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.question-container {
+    margin: 30px 0;
+}
+
+.question-image {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.question-image img {
+    max-width: 300px;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.option-btn {
+    padding: 15px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.test-navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-prev, .btn-skip, .btn-finish {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-prev {
+    background: #b2bec3;
+    color: white;
+}
+
+.btn-skip {
+    background: #fdcb6e;
+    color: #2c3e50;
+}
+
+.btn-finish {
+    background: #00b894;
+    color: white;
+}
+
+.available-tests {
+    margin-bottom: 40px;
+}
+
+.available-tests h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.tests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.test-card-small {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.test-card-small:hover {
+    transform: translateY(-5px);
+}
+
+.test-header-small {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.test-header-small h3 {
+    margin: 0;
+    color: #3498db;
+    font-size: 18px;
+}
+
+.test-time {
+    background: #e8f4fc;
+    color: #3498db;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.test-card-small h4 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+.test-description-small {
+    color: #7f8c8d;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.test-stats-small {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #95a5a6;
+    margin-bottom: 15px;
+}
+
+.btn-start-test-small {
+    width: 100%;
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-start-test-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.no-tests {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.user-age {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin: 5px 0 0;
+}
