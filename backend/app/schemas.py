@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field, EmailStr, validator
 from typing import Optional, List, Dict, Any
 from datetime import datetime, date
+from . import normative_tables
 
 # ============ USER SCHEMAS ============
 class UserBase(BaseModel):
@@ -126,13 +127,7 @@ def calculate_age(birth_date: date) -> int:
 
 def get_age_group(age: int) -> str:
     """Определить возрастную группу"""
-    if age < 18: return "16-17"
-    elif age < 25: return "18-24"
-    elif age < 35: return "25-34"
-    elif age < 45: return "35-44"
-    elif age < 55: return "45-54"
-    elif age < 65: return "55-64"
-    else: return "65+"
+    return normative_tables.get_age_group_label(age)
 
 class TestResultResponse(BaseModel):
     id: int

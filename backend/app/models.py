@@ -61,7 +61,7 @@ class NormativeData(Base):
     __tablename__ = "normative_data"
     
     id = Column(Integer, primary_key=True, index=True)
-    age_group = Column(String)  # Возрастная группа, напр. '18-24'
+    age_group = Column(String)  # Возрастная группа, напр. '15.1-18.0' или '18+'
     raw_score_min = Column(Integer)  # Минимальный сырой балл для этой группы
     raw_score_max = Column(Integer)  # Максимальный сырой балл для этой группы
     iq_score = Column(Float)  # Соответствующий IQ
