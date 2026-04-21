@@ -5,14 +5,14 @@ import './Dashboard.css';
 
 const UserDashboard = () => {
     const [user, setUser] = useState(null);
-    const [availableTests, setAvailableTests] = useState([]); // Добавили для тестов
+    const [availableTests, setAvailableTests] = useState([]);
     const [showLinkPsychologist, setShowLinkPsychologist] = useState(false);
     const [psychologistCode, setPsychologistCode] = useState('');
-    const navigate = useNavigate(); // Хук useNavigate должен быть внутри компонента!
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchUserData();
-        fetchAvailableTests(); // Добавили вызов
+        fetchAvailableTests();
     }, []);
 
     const fetchUserData = async () => {
@@ -24,7 +24,6 @@ const UserDashboard = () => {
         }
     };
 
-    // Новая функция для получения доступных тестов
     const fetchAvailableTests = async () => {
         try {
             const response = await api.get('/tests/available');

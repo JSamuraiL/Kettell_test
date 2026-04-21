@@ -106,7 +106,7 @@ class TestingService:
                 'age_group': age_group_label,
             }
 
-        # Fallback на старую формулу
+        # Нет подходящей строки в нормативной таблице — оценка по формуле
         age_group = self.get_age_group(age)
         if test_part == 'A':
             base_iq = 100 + (raw_score - 25) * 2

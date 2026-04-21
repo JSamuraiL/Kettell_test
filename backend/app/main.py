@@ -2,9 +2,8 @@ from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
-from datetime import timedelta, date
+from datetime import timedelta
 from typing import List, Optional, Set
-import json
 import re
 from fastapi.staticfiles import StaticFiles
 
@@ -70,7 +69,7 @@ def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
         email=user.email,
         hashed_password=hashed_password,
         full_name=user.full_name,
-        date_of_birth=user.date_of_birth,  # Добавить дату рождения
+        date_of_birth=user.date_of_birth,
         role=user.role
     )
     db.add(db_user)
@@ -125,11 +124,6 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
 @app.get("/users/me", response_model=schemas.UserResponse)
 async def read_users_me(current_user: models.User = Depends(get_current_user)):
     return current_user
-
-# Защищенный маршрут примера
-@app.get("/protected")
-async def protected_route(current_user: models.User = Depends(get_current_user)):
-    return {"message": f"Hello {current_user.email}, this is protected data!"}
 
 # Эндпоинт для привязки психолога
 @app.post("/psychologist/link")
@@ -188,52 +182,6 @@ def link_psychologist(
             "full_name": psychologist.full_name,
             "code": f"PSY-{psychologist.id}"
         }
-    }
-
-# Эндпоинт для прохождения теста
-@app.post("/tests/submit")
-def submit_test(
-    test_data: schemas.TestSubmission,
-    current_user: models.User = Depends(get_current_user),
-    db: Session = Depends(get_db)
-):
-    """Отправить результаты теста"""
-    if current_user.role != "user":
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only users can submit tests"
-        )
-    
-    # Здесь будет логика расчета результатов теста Кеттелла
-    # Пока заглушка
-    raw_score = calculate_raw_score(test_data.answers)
-    standard_score = calculate_iq_score(raw_score, test_data.age)
-    percentile = calculate_percentile(standard_score)
-    age_group = get_age_group(test_data.age)
-    interpretation = interpret_results(standard_score, age_group)
-    
-    # Сохраняем результат
-    test_result = models.TestResult(
-        user_id=current_user.id,
-        test_type=test_data.test_type,
-        raw_score=raw_score,
-        standard_score=standard_score,
-        percentile=percentile,
-        age_group=age_group,
-        answers=[answer.dict() for answer in test_data.answers],
-        interpretation=interpretation
-    )
-    
-    db.add(test_result)
-    db.commit()
-    db.refresh(test_result)
-    
-    return {
-        "test_id": test_result.id,
-        "raw_score": raw_score,
-        "standard_score": standard_score,
-        "percentile": percentile,
-        "interpretation": interpretation
     }
 
 # Для психолога: получить своих пациентов
@@ -351,63 +299,6 @@ def get_patient_results(
     
     # Возвращаем один общий результат тестирования
     return [full_result]
-
-# Функции-заглушки для расчета результатов
-def calculate_raw_score(answers: List[schemas.TestAnswer]) -> int:
-    """Расчет сырого балла теста Кеттелла"""
-    # Здесь должна быть реальная логика расчета
-    # Пока возвращаем случайное значение для демонстрации
-    import random
-    return random.randint(20, 80)
-
-def calculate_iq_score(raw_score: int, age: int) -> float:
-    """Конвертация сырого балла в IQ с учетом возраста"""
-    # Нормативные данные для разных возрастных групп
-    # Это упрощенная версия, в реальности нужны таблицы нормативов
-    base_iq = 100
-    age_factor = {16: 1.0, 25: 1.1, 35: 1.05, 45: 1.0, 55: 0.95, 65: 0.9}
-    
-    closest_age = min(age_factor.keys(), key=lambda x: abs(x - age))
-    iq = base_iq + (raw_score - 50) * 2 * age_factor[closest_age]
-    
-    return round(iq, 1)
-
-def calculate_percentile(iq_score: float) -> int:
-    """Расчет процентиля на основе IQ"""
-    # Упрощенная версия
-    if iq_score < 70: return 2
-    elif iq_score < 85: return 16
-    elif iq_score < 100: return 50
-    elif iq_score < 115: return 84
-    else: return 98
-
-def get_age_group(age: int) -> str:
-    """Определение возрастной группы"""
-    if age < 18: return "16-17"
-    elif age < 25: return "18-24"
-    elif age < 35: return "25-34"
-    elif age < 45: return "35-44"
-    elif age < 55: return "45-54"
-    elif age < 65: return "55-64"
-    else: return "65+"
-
-def interpret_results(iq_score: float, age_group: str) -> str:
-    """Интерпретация результатов"""
-    if iq_score < 70:
-        return "Значительно ниже среднего. Рекомендуется консультация специалиста."
-    elif iq_score < 85:
-        return "Ниже среднего. Есть потенциал для развития."
-    elif iq_score < 100:
-        return "Средний уровень. Норма для большинства людей."
-    elif iq_score < 115:
-        return "Выше среднего. Хорошие интеллектуальные способности."
-    elif iq_score < 130:
-        return "Высокий уровень. Отличные интеллектуальные способности."
-    else:
-        return "Очень высокий уровень. Выдающиеся интеллектуальные способности."
-
-from app.testing import TestingService
-from datetime import date
 
 # Получить информацию о тестах
 @app.get("/tests/available", response_model=List[schemas.TestInfo])

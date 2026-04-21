@@ -84,7 +84,7 @@ def create_test_data():
         db.add_all(questions_a1 + questions_a2)
         print(f"Создано {len(questions_a1 + questions_a2)} вопросов")
         
-        # 3. Создаем нормативные данные (для демонстрации)
+        # 3. Нормативные данные в БД (сида для разработки)
         normative_data = []
         age_groups = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"]
         
@@ -94,7 +94,7 @@ def create_test_data():
                     age_group=age_group,
                     raw_score_min=raw_score,
                     raw_score_max=raw_score + 4,
-                    iq_score=90 + raw_score * 2,  # Примерная формула
+                    iq_score=90 + raw_score * 2,
                     percentile=min(99, max(1, raw_score * 2)),
                     description=f"Уровень для возрастной группы {age_group}"
                 )

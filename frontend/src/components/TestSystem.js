@@ -43,9 +43,7 @@ const TestSystem = () => {
     const fetchTestInfo = async () => {
         try {
             const response = await api.get(`/tests/${testId}/questions`);
-            // Получаем информацию о тесте из первого вопроса или отдельного эндпоинта
             if (response.data.length > 0) {
-                // В реальном приложении нужен отдельный эндпоинт для информации о тесте
                 const testResponse = await api.get('/tests/available');
                 const test = testResponse.data.find(t => t.id === parseInt(testId));
                 setTestInfo({

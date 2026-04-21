@@ -74,7 +74,7 @@ class TestResult(Base):
     
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    test_part = Column(String)  # 'A', 'B' или 'full' (A+B) - ЭТОТ СТОЛБЕЦ ДОЛЖЕН БЫТЬ!
+    test_part = Column(String)  # 'A', 'B' или 'full' (сводный результат после всех субтестов)
     raw_score_a = Column(Integer)  # Сырой балл по части A
     raw_score_b = Column(Integer)  # Сырой балл по части B
     total_raw_score = Column(Integer)  # Общий сырой балл
